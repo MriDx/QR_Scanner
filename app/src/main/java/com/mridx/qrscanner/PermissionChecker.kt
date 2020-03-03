@@ -27,8 +27,10 @@ public class PermissionChecker(mainActivity: MainActivity) {
                 arrayOf(Manifest.permission.CAMERA).toString()
             )
         ) {
-            Toast.makeText(context, "Allwo permission from settings", Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(context, "Allow permission from settings", Toast.LENGTH_SHORT).show()
             return
+
         }
         ActivityCompat.requestPermissions(context, arrayOf(Manifest.permission.CAMERA), 200)
     }
