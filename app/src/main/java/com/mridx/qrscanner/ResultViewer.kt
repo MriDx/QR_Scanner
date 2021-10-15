@@ -11,7 +11,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ShareCompat
-import kotlinx.android.synthetic.main.result_viewer.*
+import com.google.zxing.client.android.BuildConfig
+import kotlinx.android.synthetic.main.result_viewer_v2.*
 
 class ResultViewer : AppCompatActivity() {
 
@@ -20,7 +21,7 @@ class ResultViewer : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.result_viewer)
+        setContentView(R.layout.result_viewer_v2)
 
         appVersion.text = "v " + BuildConfig.VERSION_NAME
 
@@ -31,6 +32,10 @@ class ResultViewer : AppCompatActivity() {
         decodeResult.setOnClickListener { decodeQrResult() }
         shareResult.setOnClickListener { shareQrResult() }
         copyResult.setOnClickListener { copyResult() }
+
+        backBtn.setOnClickListener {
+            onBackPressed()
+        }
 
     }
 
@@ -46,6 +51,7 @@ class ResultViewer : AppCompatActivity() {
         val decoded = Base64Helper().decode(result)
         decodedResultView.text = decoded
         decodedViewer.visibility = View.VISIBLE
+        decodedViewer.requestFocus()
     }
 
     private fun openBrowser() {
@@ -54,15 +60,21 @@ class ResultViewer : AppCompatActivity() {
             intent.action = Intent.ACTION_VIEW
             intent.data = Uri.parse(result)
             startActivity(intent)
-        } else{
+        } else {
             Toast.makeText(this, "not a valid url", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun copyResult() {
         val clipBoard = this.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val clipData = ClipData.newPlainText("Qr Scanner result", result)
+        val clipData = ClipData.newPlainText("QR/Barcode Scanner result", result)
         clipBoard.setPrimaryClip(clipData)
-        Toast.makeText(this, "Qr result copied", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "QR/Barcode result copied to clipboard !", Toast.LENGTH_SHORT).show()
     }
+
+    override fun onBackPressed() {
+        result = ""
+        super.onBackPressed()
+    }
+
 }

@@ -6,28 +6,54 @@
 
     <dist:module dist:instant="true" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.MyFullScreen">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResultViewer"
+        <activity
+            android:name=".ResultViewer"
             android:screenOrientation="portrait"
-            />
+            tools:ignore="LockedOrientationActivity" />
 
-        <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
+        <activity
+            android:name=".QRGenerator"
             android:screenOrientation="portrait"
-            tools:replace="screenOrientation"
-            />
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            tools:replace="screenOrientation" />
+
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.mridx.qrscanner.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/path" />
+        </provider>
 
     </application>
 

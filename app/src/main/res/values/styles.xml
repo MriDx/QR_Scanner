@@ -8,11 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.MyFullScreen" parent="Theme.AppCompat.Light.NoActionBar" >
+    <style name="AppTheme.MyFullScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
     </style>
+
 
 </resources>

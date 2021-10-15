@@ -24,6 +24,9 @@ class MainActivity : AppCompatActivity() {
 
         scannerCard.setOnClickListener { startScanner() }
 
+        generateCard.setOnClickListener { startActivity(Intent(this, QRGenerator::class.java)) }
+
+
     }
 
     private fun startScanner() {
