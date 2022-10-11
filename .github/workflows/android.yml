@@ -56,7 +56,7 @@ jobs:
         releaseFiles: app/build/outputs/bundle/release/app-release.aab
         #track: beta
         track: production
-        status: draft #inProgress
+        status: completed #inProgress #completed #draft
         inAppUpdatePriority: 5
         #userFraction: 1.0
         whatsNewDirectory: distribution/whatsnew
