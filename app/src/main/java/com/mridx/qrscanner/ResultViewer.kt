@@ -11,7 +11,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ShareCompat
-import com.google.zxing.client.android.BuildConfig
 import kotlinx.android.synthetic.main.result_viewer_v2.*
 
 class ResultViewer : AppCompatActivity() {
