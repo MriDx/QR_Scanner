@@ -9,7 +9,7 @@ on:
     tags: [ "v*" ]
 
 
-job:
+jobs:
   buildApk:
     name: Build APK
     runs-on: ubuntu-latest
@@ -74,5 +74,3 @@ job:
           asset_name: ${{ github.event.repository.name }}.apk
           asset_content_type: application/zip
 
-
-          # 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
