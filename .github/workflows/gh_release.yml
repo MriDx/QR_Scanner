@@ -58,7 +58,7 @@ jobs:
         name: Create GH Release
         id: create_release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN : ${{ secrets.GH_TOKEN }}
         with:
           tag_name: ${{ github.run_number }}
           release_name: ${{ github.event.repository.name }} v${{ github.run_number }}
@@ -67,7 +67,7 @@ jobs:
         name: Upload Release APK
         id: upload_release_asset
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: apk/app-debug.apk
