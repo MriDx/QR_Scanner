@@ -58,16 +58,13 @@ jobs:
       - name: Build
         run: echo ${{ github.sha }} > Release.txt
 
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        #if: startsWith(github.ref, 'refs/tags/')
-        tag_name: ${{ github.run_number }}
-        #name: ${{ github.event.repository.name }} v${{ github.run_number }}
+
+      - uses: ncipollo/release-action@v1
         with:
-          files: |
-            Release.txt
-            apk/app-debug.apk
-            ${{steps.sign_app.outputs.signedReleaseFile}}
+          artifacts: "apk/app-debug.apk"
+          #bodyFile: "body.md"
+          token: ${{ secrets.GH_TOKEN }}
+          commit: true
 
 #      - uses: actions/create-release@v1
 #        name: Create GH Release
