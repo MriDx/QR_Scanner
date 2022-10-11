@@ -54,8 +54,8 @@ jobs:
         serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
         packageName: com.mridx.qrscanner
         releaseFiles: app/build/outputs/bundle/release/app-release.aab
-        #track: beta
-        track: production
+        track: beta
+        #track: production
         status: completed #inProgress #completed #draft
         inAppUpdatePriority: 5
         #userFraction: 1.0
