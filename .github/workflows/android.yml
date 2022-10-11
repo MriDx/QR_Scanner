@@ -68,3 +68,4 @@ jobs:
         mappingFile: app/build/outputs/mapping/release/mapping.txt
         #changesNotSentForReview: true
         #debugSymbols: app/intermediates/merged_native_libs/release/out/lib
+
