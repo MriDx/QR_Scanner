@@ -23,11 +23,6 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-#    - name: Update env. variables
-#      env:
-#        MAPS_API_KEY: AIzaSyAZMUzsxbKwTdKIY-Z2EzGrwmXiovtFxB8
-#      run: echo MAPS_API_KEY="$MAPS_API_KEY" > ./local.properties
-
     - name: Build with Gradle
       run: ./gradlew build
 
