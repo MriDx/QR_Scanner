@@ -61,7 +61,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         #if: startsWith(github.ref, 'refs/tags/')
-        #tag_name: ${{ github.run_number }}
+        tag_name: ${{ github.run_number }}
         #name: ${{ github.event.repository.name }} v${{ github.run_number }}
         with:
           files: |
